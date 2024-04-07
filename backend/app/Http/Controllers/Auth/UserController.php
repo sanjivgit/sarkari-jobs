@@ -27,8 +27,7 @@ class UserController extends Controller
             $req->all(),
             [
                 'email' => 'required|email',
-                'password' => 'required',
-                'type' => "nullable|in:mobile"
+                'password' => 'required'
             ]
         );
         if ($validated->fails())
@@ -38,8 +37,7 @@ class UserController extends Controller
 
             if (!$user)
                 throw new Exception("Oops! Given email does not exist");
-            if ($user->suspended == true)
-                throw new Exception("You are not authorized to log in!");
+            
             if (Hash::check($req->password, $user->password)) {
 
                 $token = $user->createToken('my-app-token')->plainTextToken;
