@@ -16,7 +16,7 @@ class SarkariJobsController extends Controller
         $this->_sarkariJob = new SarkariJobs();
     }
 
-    ///// Getting All Notification types
+    ///// Getting All Notification typesss
     public function getNotificationType(Request $req)
     {
         try {
