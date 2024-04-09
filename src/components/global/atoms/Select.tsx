@@ -1,7 +1,6 @@
 import { useQuery } from "react-query";
 import React from "react";
 import axios from "@/lib/axiosConfig";
-import { useField } from "formik";
 
 /**
  * | Author- Sanjiv Kumar
@@ -38,13 +37,6 @@ interface Select {
 }
 
 const Select: React.FC<SelectProps> = (props) => {
-  const [, , helpers] = useField(props.name);
-  const [, , helpers1] = useField(`${props.name}_name`);
-
-  const { setValue } = helpers;
-  const { setValue: setValue1 } = helpers1;
-
-  const fieldId = "id_" + props.name;
 
   const fetchData = async (): Promise<Select[]> => {
     const res = await axios({
@@ -64,30 +56,20 @@ const Select: React.FC<SelectProps> = (props) => {
     throw new Error("Fatal Error!");
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (props.handler) {
-      props.handler(parseInt(e.target.value));
-    }
-    setValue(parseInt(e.target.value));
-    const selectedOption = e.target.options[e.target.selectedIndex].dataset;
-    setValue1(selectedOption.name);
-  };
-
   return (
     <>
       <div className="flex flex-col gap-1">
-        <label className="text-secondary text-sm" htmlFor={fieldId}>
+        <label className="text-secondary text-sm" >
           {props.label}
           {props.required? (<span className="text-red-600 pl-2">*</span>):("")}
         </label>
         <select
           disabled={props.readonly}
-          onChange={(event) => handleChange(event)}
+          onChange={props.onChange}
           onBlur={props.onBlur}
           value={props.value}
           className={`text-primary h-[40px] pl-3 rounded-lg border bg-transparent border-zinc-400 ${props.className}`}
           name={props.name}
-          id={fieldId}
         >
           <option selected value="">
             {props.placeholder}
@@ -97,21 +79,8 @@ const Select: React.FC<SelectProps> = (props) => {
               <option
                 key={d?.id}
                 value={d?.id}
-                data-name={
-                  d?.name ||
-                  d?.type ||
-                  (d?.code && d?.description
-                    ? `${d.code}-${d?.description}`
-                    : d?.code) ||
-                  d?.ulbs
-                }
               >
-                {d?.name ||
-                  d?.type ||
-                  (d?.code && d?.description
-                    ? `${d.code}-${d?.description}`
-                    : d?.code) ||
-                  d?.ulbs}
+                {d?.name}
               </option>
             ))}
         </select>

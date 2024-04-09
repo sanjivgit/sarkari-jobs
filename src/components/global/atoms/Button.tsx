@@ -19,14 +19,14 @@ interface ButtonProps {
 }
 
 const buttonVariants = cva(
-  `p-2.5 px-5 text-[0.875rem] flex items-center gap-3 btn-neutral hover:border-neutral-400 rounded-md font-medium text-white hover:bg-indigo-600  hover:text-white`,
+  `p-2.5 px-5 text-[0.875rem] flex items-center gap-3 btn-neutral hover:border-neutral-400 rounded-md font-medium text-white hover:bg-primary_bg_indigo  hover:text-white`,
   {
     variants: {
       variant: {
         primary: "bg-primary_bg_indigo hover:text-white",
         danger: "bg-red-400 hover:text-white",
         cancel:
-          "bg-white border text-neutral-800 border-primary_bg_indigo hover:bg-indigo-600  hover:text-white",
+          "bg-white border text-neutral-800 border-primary_bg_indigo hover:bg-primary_bg_indigo  hover:text-white",
       },
     },
     defaultVariants: {

@@ -10,19 +10,14 @@ import React from "react";
 interface TextareaProps {
   label: string;
   name: string;
-  type?: string;
   readonly?: boolean;
   placeholder?: string | "";
-  value?: string | number | undefined;
-  error?: string | undefined;
-  touched?: boolean | undefined;
   className?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const TextArea: React.FC<TextareaProps> = (props) => {
-  const { label, name, ...rest } = props;
+  const { label, name } = props;
   const fieldId = "id_" + name;
   return (
     <>
@@ -30,17 +25,13 @@ const TextArea: React.FC<TextareaProps> = (props) => {
         <label className="text-secondary text-sm" htmlFor={fieldId}>
           {label}
         </label>
-        <input
-          {...rest}
+        <textarea
+          onChange={props.onChange}
           disabled={props.readonly}
-          className={`text-primary h-[40px] p-3 rounded-lg border bg-transparent border-zinc-400 ${props.className}`}
+          className={`text-primary h-32 p-3 rounded-lg border bg-transparent border-zinc-400 ${props.className}`}
           name={props.name}
           id={fieldId}
         />
-
-        {props.touched && props.error && (
-          <div className="text-red-500">{props.error}</div>
-        )}
       </div>
     </>
   );

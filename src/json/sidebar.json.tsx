@@ -60,5 +60,17 @@ export const sidebarLinks: SidebarLinksProps = {
       ),
       path: "/admit-cards"
     },
+    {
+      moduleName: "Add Content",
+      icon: (
+        <Image
+          src={mastersLogo}
+          alt="add-content"
+          width={25}
+          height={25}
+        />
+      ),
+      path: "/add-content"
+    },
   ],
 };
