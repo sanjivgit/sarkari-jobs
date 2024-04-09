@@ -1,7 +1,7 @@
 // axiosConfig.js
 
 import axios from "axios";
-import Cookies from "js-cookie";
+import Cookies from "../../node_modules/@types/js-cookie";
 
 const userData = Cookies.get("loginData");
 let user: any = "";

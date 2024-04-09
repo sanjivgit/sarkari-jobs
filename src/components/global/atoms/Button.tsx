@@ -2,13 +2,6 @@ import React from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 
-/**
- * | Author- Krish
- * | Created On- 02-02-2024
- * | Created for- Button
- * | Status- done
- */
-
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
