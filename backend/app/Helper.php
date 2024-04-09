@@ -32,7 +32,7 @@ if (!function_exists("responseMsgs")) {
 }
 
 
-/**
+/***
  * | To through Validation Error
  */
 if (!function_exists("validationError")) {
