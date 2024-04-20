@@ -1,7 +1,7 @@
 // axiosConfig.js
 
 import axios from "axios";
-import Cookies from "../../node_modules/@types/js-cookie";
+import Cookies from "js-cookie";
 
 const userData = Cookies.get("loginData");
 let user: any = "";
@@ -11,7 +11,7 @@ if (userData) {
 
 const instance = axios.create({
   // baseURL: "http://localhost:5001/api/finance",   //// It's your backend baseUrl
-  baseURL: "http://localhost:8000/api/finance",     //// It's your local APIGetway baseUrl
+  baseURL: "http://127.0.0.1:8000/api",     //// It's your local APIGetway baseUrl
   headers: {
     Authorization: `Bearer ${user?.token}`,
   },

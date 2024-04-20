@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import Cookies from "../../../node_modules/@types/js-cookie";
+import Cookies from "js-cookie";
 
 const govJobsLoginData = Cookies.get("govJobsLoginData");
 
