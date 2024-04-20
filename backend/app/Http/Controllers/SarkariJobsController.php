@@ -24,21 +24,21 @@ class SarkariJobsController extends Controller
             if (!$data)
                 throw new Exception("Not Found");
 
-            return responseMsgs(true, "Notification Types Found Successfully", $data, 0103, "1.0", responseTime(), "GET");
+            return responseMsgs(true, "Notification Types Found Successfully", $data, 0201, "1.0", responseTime(), "GET");
         } catch (Exception $e) {
             return responseMsg(false, $e->getMessage(), "");
         }
     }
 
-    ////// Getting All leatest Jobs
-    public function getLeatestJobs(Request $req)
+    ///// Getting All States
+    public function getStates(Request $req)
     {
         try {
-            $data = $this->_sarkariJob->getLeatestJobs();
+            $data = $this->_sarkariJob->getNotificationTypes();
             if (!$data)
                 throw new Exception("Not Found");
 
-            return responseMsgs(true, "Leatest Jobs Found Successfully", $data, 0103, "1.0", responseTime(), "GET");
+            return responseMsgs(true, "Notification Types Found Successfully", $data, 0202, "1.0", responseTime(), "GET");
         } catch (Exception $e) {
             return responseMsg(false, $e->getMessage(), "");
         }

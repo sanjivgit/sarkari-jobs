@@ -10,13 +10,22 @@ class SarkariJobs extends Model
 {
     use HasFactory;
 
+    private $_mContent;
+
+    public function __construct()
+    {
+        $this->_mContent = new Contents();
+    }
+
     ////// Getting All notification types
-    public function getNotificationTypes(){
+    public function getNotificationTypes()
+    {
         return DB::table('notification_types')->get()->select('id', 'name');
     }
 
-    ////// Getting All leatest Jobs
-    public function getLeatestJobs(){
-        return DB::table('leatest_jobs')->select('id', 'content_id', 'contents.title', 'notification_type_id')->join('contents', 'leatest_jobs.content_id', '=', 'contents.id')->get();
+    ////// Getting All States
+    public function getstates()
+    {
+        return DB::table('states')->get()->select('id', 'name');
     }
 }

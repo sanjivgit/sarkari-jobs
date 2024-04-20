@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('results', function (Blueprint $table) {
             $table->id();
             $table->integer('content_id');
-            $table->integer('notification_type_id');
+            $table->string('title');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('state_id');
             $table->timestamps();
         });
     }

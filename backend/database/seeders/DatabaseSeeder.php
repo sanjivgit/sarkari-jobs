@@ -19,7 +19,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-            NotificationTypeSeeder::class
+            NotificationTypeSeeder::class,
+            AdmitCardSeeder::class,
+            ContentSeeder::class,
+            LeatestJobSeeder::class,
+            ResultSeeder::class,
+            StateSeeder::class
          ]);
     }
 }
